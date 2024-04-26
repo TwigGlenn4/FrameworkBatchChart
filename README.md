@@ -13,7 +13,7 @@ A tool for automatically downloading charts from Google Sheets to .png images fo
 # How can I use this tool?
 
 ### This tool is LINUX ONLY!
-It has only been tested on Xubuntu 23.10, but should work on any modern Ubuntu derviative and maybe more.
+It has only been tested on Xubuntu 23.10 and a Ubuntu 23.04 VM, but should work on any modern Ubuntu derviative and maybe more.
 
 I have no plans to port this to Windows, but if anyone can manage to make it work without breaking Ubuntu support I'd be happy to accept a pull request.
 
