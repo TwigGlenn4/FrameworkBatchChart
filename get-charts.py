@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # TwigGlenn4
-# get-chart-pictures 1.2.0
+# get-chart-pictures 1.2.1
 
 # python built-in modules
 import os
@@ -37,7 +37,7 @@ SELENIUM_SLEEP = 0.1 # I think 0.1 seconds is enough for Selenium to take over w
 # This is the default filename when printed to PDF.
 DEFAULT_FILENAME = "Framework 16 Batch Chart - Google Sheets.pdf"
 
-# Directory containing chrome's actual executable for usage by Selenium. Will open a new auto/testing instance, not your saved profile.
+# Directory containing chrome's actual executable for usage by Selenium. Will open a new testing instance, not your saved profile.
 CHROME_PATH = "/opt/google/chrome/"
 
 # Some URL to visit so that the automated browser dosen't linger in the Google Sheets anonymous viewers list.

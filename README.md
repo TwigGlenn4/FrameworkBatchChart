@@ -25,17 +25,18 @@ I have no plans to port this to Windows, but if anyone can manage to make it wor
 - Selenium - Allows Python to control a dedicated Chrome instance.
 
 ## Installation
-1. Install Google Chrome from the chrome website if you don't already use it.
-2. Install ImageMagick with `sudo apt install imagemagick`
-3. Install Wand and Selenium with `pip3 install selenium wand`
-4. Download this repository, or just the `get-charts.py` script.
+1. Download this repository, or just the `get-charts.py` script.
+2. Install Google Chrome from the chrome website if you don't already use it.
+3. Install ImageMagick and pip with `sudo apt install imagemagick python3-pip`
+4. Install Wand and Selenium with `pip3 install selenium wand`
+5. Allow ImageMagick to work with PDF files by removing `<policy domain="coder" rights="none" pattern="PDF" />` from the file `/etc/ImageMagick-6/policy.xml`.
 
 ## Configure settings in `get-charts.py`
 - Change `CHROME_PATH` if you want to try Chromium or another browser compatible with selenium's `webdriver.Chrome()`, but be warned that selenium does not handle snaps well.
 - If you want to download a different set of charts, edit `URL_LIST` to your list, and `DEFAULT_FILENAME` should be updated to the default filename given by saving to PDF. This is usually the tab title.
 
 ## Run
-Open a terminal in the directory containing the script and run `python3 get-charts.py`.
+Open a terminal in the directory containing the script and run `python3 get-charts.py`. The first run may take extra time while the testing browser loads.
 
 
 # Additional Files
