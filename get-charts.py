@@ -13,6 +13,8 @@ from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from wand.image import Image
+import chromedriver_autoinstaller
+
 
 
 ### SETTINGS ###
@@ -28,17 +30,14 @@ URL_LIST = {  "FW16BatchChart": "https://docs.google.com/spreadsheets/d/12nY1kIr
 # Full path of the destination folder for saved images. Leave "" to save images to the folder containing this script.
 OVERRIDE_DOWNLOAD_PATH = ""
 
-# Subdirectory of destination folder to move old charts into. Will not move them is set to ""
+# Subdirectory of destination folder to move old charts into. Will not move them if set to ""
 OLD_DIRNAME = "old/"
 
-# How long to sleep after doing something that takes time in selenium (loading a page, printing to PDF, etc), because selenium dosen't pause execution in time for me.
+# How long to wait after doing something that takes time in selenium (loading a page, printing to PDF, etc), because selenium seems to hesitate before pauseing execution for me.
 SELENIUM_SLEEP = 0.1 # I think 0.1 seconds is enough for Selenium to take over waiting until it's done.
 
 # This is the default filename when printed to PDF.
 DEFAULT_FILENAME = "Framework 16 Batch Chart - Google Sheets.pdf"
-
-# Directory containing chrome's actual executable for usage by Selenium. Will open a new testing instance, not your saved profile.
-CHROME_PATH = "/opt/google/chrome/"
 
 # Some URL to visit so that the automated browser dosen't linger in the Google Sheets anonymous viewers list.
 FINAL_URL = "about://version"
@@ -128,9 +127,10 @@ prefs = {'printing.print_preview_sticky_settings.appState': dumps(settings),
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option('prefs', prefs)
 chrome_options.add_argument('--kiosk-printing')
-chrome_options.add_argument("--no-sandbox");
-chrome_options.add_argument("--disable-dev-shm-usage");
-chrome_options.binary_location = CHROME_PATH
+
+
+# Run the autoinstaller
+chromedriver_autoinstaller.install()
 
 driver = webdriver.Chrome(options=chrome_options)
 
@@ -172,5 +172,7 @@ for graph, url in URL_LIST.items():
     print(f"  {filename_png} converted...")
 
 
-driver.get(FINAL_URL) # Prevents anonymous from lingering in google sheets
+driver.get(FINAL_URL) # Prevents Anonymous from lingering in google sheets
 driver.quit()
+
+print("Done!")

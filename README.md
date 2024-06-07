@@ -13,30 +13,35 @@ A tool for automatically downloading charts from Google Sheets to .png images fo
 # How can I use this tool?
 
 ### This tool is LINUX ONLY!
-It has only been tested on Xubuntu 23.10 and a Ubuntu 23.04 VM, but should work on any modern Ubuntu derviative and maybe more.
+The current version has been tested on Xubuntu 24.04 on Python 3.12.3, but should work on any modern Ubuntu derviative and maybe more.
 
-I have no plans to port this to Windows, but if anyone can manage to make it work without breaking Ubuntu support I'd be happy to accept a pull request.
+I have no plans to port this to Windows, but if anyone manages to make it work without breaking Ubuntu support I'd be happy to accept a pull request.
 
 ## Requirements
 - Python 3
 - Google Chrome
 - ImageMagick - Image manipulation tool
 - Wand - Connects Python to ImageMagick
-- Selenium - Allows Python to control a dedicated Chrome instance.
+- Selenium - Allows Python to control a web browser.
+- Chromedriver-Autoinstaller - Allows Selenium to properly interface with chrome.
 
 ## Installation
 1. Download this repository, or just the `get-charts.py` script.
 2. Install Google Chrome from the chrome website if you don't already use it.
 3. Install ImageMagick and pip with `sudo apt install imagemagick python3-pip`
-4. Install Wand and Selenium with `pip3 install selenium wand`
-5. Allow ImageMagick to work with PDF files by removing `<policy domain="coder" rights="none" pattern="PDF" />` from the file `/etc/ImageMagick-6/policy.xml`.
+4. Setup a Python virtual environment by running `python3 -m venv batchchart_venv` in the folder containing `get-charts.py`
+5. Activate the Python virtual environment with `source batchchart_venv/bin/activate`
+6. Install Wand, Selenium, and Chromedriver-Autoinstaller with `pip3 install wand selenium chromedriver-autoinstaller`
+7. Allow ImageMagick to work with PDF files by removing `<policy domain="coder" rights="none" pattern="PDF" />` from the file `/etc/ImageMagick-6/policy.xml`.
 
 ## Configure settings in `get-charts.py`
-- Change `CHROME_PATH` if you want to try Chromium or another browser compatible with selenium's `webdriver.Chrome()`, but be warned that selenium does not handle snaps well.
+- Most of the variables are self explaning, and I have comments in the script to describe how they work too.
 - If you want to download a different set of charts, edit `URL_LIST` to your list, and `DEFAULT_FILENAME` should be updated to the default filename given by saving to PDF. This is usually the tab title.
 
 ## Run
-Open a terminal in the directory containing the script and run `python3 get-charts.py`. The first run may take extra time while the testing browser loads.
+1. Open a terminal in the directory containing the script and virtual environment
+1. Activate the virtual environment if not already active. `source batchchart_venv/bin/activate`. The venv is active when you see `(batchchart_venv)` before your command prompt.
+2. Run `python3 get-charts.py`. The first run may take extra time while the testing browser loads.
 
 
 # Additional Files
