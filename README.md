@@ -4,10 +4,10 @@ A tool for automatically downloading charts from Google Sheets to .png images fo
 
 # How it works
 1. Use Selenium to open the link to the chart on Google Sheets
-2. Print to PDF using the custom print dialog
+2. Print to PDF with Sheets' print dialog
 3. Convert the saved .pdf to a .png with ImageMagick
 4. Repeat for each chart
-5. Visit some URL so an anonymous user doesn't linger in the Google Sheets viewers list
+5. Visit some URL(Default: `about://version`) so an anonymous user doesn't linger in the Google Sheets viewers list
 
 
 # How can I use this tool?
@@ -15,7 +15,7 @@ A tool for automatically downloading charts from Google Sheets to .png images fo
 ### This tool is LINUX ONLY!
 The current version has been tested on Xubuntu 24.04 on Python 3.12.3, but should work on any modern Ubuntu derviative and maybe more.
 
-I have no plans to port this to Windows, but if anyone manages to make it work without breaking Ubuntu support I'd be happy to accept a pull request.
+I have no plans to port this to Windows, but feel free to fork if you want to give it a shot. It has not been tested on WSL.
 
 ## Requirements
 - Python 3
@@ -28,7 +28,7 @@ I have no plans to port this to Windows, but if anyone manages to make it work w
 ## Installation
 1. Download this repository, or just the `get-charts.py` script.
 2. Install Google Chrome from the chrome website if you don't already use it.
-3. Install ImageMagick and pip with `sudo apt install imagemagick python3-pip`
+3. Install ImageMagick, pip, and python's virtual environment manager with `sudo apt install imagemagick python3-pip python3-venv`
 4. Setup a Python virtual environment by running `python3 -m venv batchchart_venv` in the folder containing `get-charts.py`
 5. Activate the Python virtual environment with `source batchchart_venv/bin/activate`
 6. Install Wand, Selenium, and Chromedriver-Autoinstaller with `pip3 install wand selenium chromedriver-autoinstaller`
@@ -45,7 +45,7 @@ I have no plans to port this to Windows, but if anyone manages to make it work w
 
 
 # Additional Files
-I've also included copies of the latest (as of writing) raw text for my [Framework Forum updates](https://community.frame.work/t/framework-laptop-16-batch-shipment-chart/47120/143) and [Reddit summaries](https://www.reddit.com/r/framework/comments/1c93xvy/framework_16_batch_chart_weekly_summary_41424_to/).
+I've also included copies of the raw text for previous [Framework Forum updates](https://community.frame.work/t/framework-laptop-16-batch-shipment-chart/47120/143) and [Reddit summaries](https://www.reddit.com/r/framework/comments/1c93xvy/framework_16_batch_chart_weekly_summary_41424_to/).
 
 - [Template_ForumUpdate.txt](Template_ForumUpdate.txt)
 - [Template_RedditSummary.txt](Template_RedditSummary.txt)

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # TwigGlenn4
-# get-chart-pictures 1.2.1
+# get-chart-pictures 1.3.0
 
 # python built-in modules
 import os
